@@ -8,8 +8,8 @@ int main(){
   int b = i;
   int a = ++i;
   printf("%d : %d : %d\n", i, a, b);
-  printf("\n%d = %d : %d = %d : %d = %d : %d = %d : %d = %d\n", i, d[i], i,d[i++], i, d[i], i, d[++i], i, d[i]);
-  printf("%d\n", atoi(" 1025"));
+  //printf("\n%d = %d : %d = %d : %d = %d : %d = %d : %d = %d\n", i, d[i], i,d[i++], i, d[i], i, d[++i], i, d[i]);
+  printf("%d\n", atoi(" -1025adsd"));//doesnt work wenn buchstaben davor sind
   return 0;
 }
 
@@ -27,10 +27,11 @@ int atoi(char *s)
   }
 
   do{
+    printf("ls\n");
     int *adr = &n;
     printf("%d : %d : %d : %s\n", n, *adr, s[i], s);
     n= n*10 + s[i++] - '0';// warum -'0';    //i wird hier erhoht
   }
   while(('0'<=s[i]) && (s[i]<='9'));
-  return n;
+  return n*sign;
 }
