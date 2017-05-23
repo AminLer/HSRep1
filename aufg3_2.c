@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-int atoi(char *t);
+int atoint(char *t);
 
 int main(){
 
-  printf("%d\n", atoi("125a"));
+  printf("%d\n", atoint("125a"));
 
   return 0;
 }
@@ -13,14 +13,17 @@ int main(){
 // fuehrende BLANC sowie ein unmittelbar vor der ersten Ziffer stehendes
 // Vorzeichen +/- sind erlaubt!
 
-int atoi(char *s)
-{ int i=0,n=0,sign;
-  while(s[i++]==' '){       // ueberlese fuehrende BLANC
-    sign=(s[i]=='-')? -1 : 1;  // bestimme Vorzeichen
-    if((s[i]=='+') || (s[i]=='-')) i++;
+int atoint(char *s)
+{
+  int i=0,n=0,sign;
+  while(*(s+i)==' ') i++;       // ueberlese fuehrende BLANC
+    sign=(*(s+i)=='-')? -1 : 1;  // bestimme Vorzeichen
+    if((*(s+i)=='+') || (*(s+i)=='-')) i++;
+
+  do{
+    n= n*10 + *(s+i) - '0';// warum -'0';    //i wird hier erhoht
+    i++;
   }
-  do
-    n= n*10 + s[i++]-'0';
-  while(('0'<=s[i]) && (s[i]<='9'));
-  return n;
+  while(('0'<=*(s+i)) && (*(s+i)<='9'));
+  return n*sign;
 }
