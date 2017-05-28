@@ -43,7 +43,7 @@ int atoint(char *s, int pos)
 
   }
   while(('0'<=*(s+i)) && (*(s+i)<='9') || checkOper(*(s+i)));
-  return rechner(operand, num1, n);
+  return rechner(operand, num1, n); //für rechnungen wie 5+2+5+2*2 brauche ich ein array der die zahlen hält
 }
 
 int checkOper(char o){
