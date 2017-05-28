@@ -34,6 +34,10 @@ int atoint(char *s, int pos)
     if(checkOper(*(s+i))){
       num1 = n; n = 0; operand = *(s+i); i++;  //n wird zurueckgesetzt und num1 bekommt die erste zahl
     }
+    if(checkOper(*(s+i))){
+      if(operand == '-' && *(s+i) == '-'){ operand = '+'; i++;}
+      else{ operand = *(s+i); i++;}  //falls zwei operanden nach einander kommen
+    }
       n= n*10 + *(s+i) - '0';
       i++;
 
