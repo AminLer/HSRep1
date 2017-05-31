@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <string.h>
+#include "tux.xpm"
+//char * tux_xpm[] = {"haall", "haskl", "hhh"}; // pointer auf ein pointer 
+char *umkehrer(char *strn);
+int main(){
+	printf("/* XPM */\nstatic char * reverse_tux[] = {\n");
+	int k, i, j;
+	int start = 1104;
+	char * details[start];
+	int laenge = *(&tux_xpm + 1) - tux_xpm;
+	//int s = laenge - start;
+	//char * new_xpm[s];
+	for(k = 0; k < start; k++){
+		details[k] = tux_xpm[k];
+		printf("\"%s\",\n", tux_xpm[k]);
+	}
+	
+	for(i = start; i < laenge; i++){
+	
+		
+		printf("\"%s\",\n", umkehrer(tux_xpm[i]));
+	}
+	//printf("blablas\n");
+	
+	//printf("tux laenge: %d %d %d\n", laenge, start, s);
+	//printf("umkehrer: %s\n", umkehrer("dases"));
+	return 0;
+
+
+}
+
+char *umkehrer(char *strn){
+	
+	int j;
+	int ln = strlen(strn)-1;
+	char * newStrn[ln+1];	
+	//printf("%d\n", laenge);
+	for(j = 0; j <= ln; j+=2){
+		newStrn[j] = strn[ln-(j+1)];
+		newStrn[j+1] = strn[ln-j];
+	}
+	strn = newStrn;
+	return strn;
+}
