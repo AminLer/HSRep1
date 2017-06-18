@@ -34,7 +34,8 @@ int main(){
 	getFileAndPutInStruct();
 	//printf("Before: %c\n", ger_xpm2[30][42]);
 //printf("%s\n", *ger_xpm2+1); 				108 und 62 fur y und x muenchen = 48 8N 11 35E
-drawRedDot(710, 630);
+drawRedDot(648, 186);
+drawRedDot(648, 372);
 //print details
 	printf("/* XPM */\nstatic char * ger_xpm[] = {\n");
 	printf("\"635 810 9 1\",\n\" 	c #000000\",\n\".	c #FFFFFF\",\n\"+	c #201E59\",\n\"@	c #A3A7A7\",\n\"#	c #3C4238\",\n\"$	c #5B6254\",\n\"%	c #787E6C\",\n\"&	c #ECED3D\",\n\"r	c #FF0000\",\n");
